@@ -1,0 +1,9 @@
+Windows Registry Editor Version 5.00
+
+; Добавляем пункт Convert2MD для всех файлов
+[HKEY_CLASSES_ROOT\*\shell\Convert2MD]
+@="Convert2MD"
+"Icon"="python.exe"
+
+[HKEY_CLASSES_ROOT\*\shell\Convert2MD\command]
+@="powershell.exe -ExecutionPolicy Bypass -File \"D:\\work\\file2x\\convert2md.ps1\" \"%1\""
