@@ -6,6 +6,7 @@ class DrawioConverter(BaseConverter):
 
     COLOR_CHANGE = "#0050ef"
     COLOR_CREATE = "#00be64"
+    COLOR_OWNED = "#FFF2CC"
 
     def convert(self, path: str) -> str:
         tree = ET.parse(path)
@@ -27,7 +28,7 @@ class DrawioConverter(BaseConverter):
             style = (cell.get("style") or "").lower()
             parent = cell.get("parent")
 
-            is_system = "swimlane" in style and "container=1" in style
+            is_system = "swimlane" in style or "container=1" in style
             is_capability = ("container=0" in style) and cell.get("vertex") == "1"
 
             cell_map[cid] = {

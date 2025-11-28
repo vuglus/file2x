@@ -13,3 +13,4 @@ $venvPath = Join-Path $projectPath ".venv\Scripts\Activate.ps1"
 
 # Запускаем конвертацию
 python "$projectPath\cli.py" "$FilePath" --to md
+pause
